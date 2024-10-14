@@ -1,0 +1,86 @@
+/* Style général pour le fond de la page */
+body {
+    background-color: #000000 !important;  /* Fond noir pour tout le corps de la page */
+    margin: 0;
+    padding: 0;
+    height: 100vh;  /* Occupe toute la hauteur de la fenêtre */
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: center;      /* Centre verticalement */
+  }
+  
+  /* Conteneur principal centré avec fond crème */
+  .checklist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f5f5dc;        /* Couleur crème pour la checklist */
+    color: #333;                      /* Texte plus sombre pour lisibilité sur fond crème */
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 50px auto;
+  }
+  
+  /* En-tête de la checklist */
+  .checklist-header {
+    width: 100%;
+    background-color: #ffcc00;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Corps de la checklist */
+  .checklist-body {
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  /* Liste des tâches */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;    /* Ligne de séparation subtile */
+  }
+  
+  .checklist-item:last-child {
+    border-bottom: none;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.5);            /* Agrandir les cases à cocher */
+  }
+  
+  .task-title {
+    font-size: 1.1em;
+    color: #333;                      /* Texte sombre pour être lisible sur fond crème */
+  }
+  
+  /* Ombre pour la planche à clip */
+  .checklist-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 10px 10px 0 0;
+  }
+  

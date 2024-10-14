@@ -1,0 +1,16 @@
+<div class="checklist-container">
+  <div class="checklist-header">
+    <h2>CHECKLIST</h2>
+  </div>
+
+  <div class="checklist-body">
+    <ul>
+      <li *ngFor="let task of tasks" class="checklist-item">
+        <!-- Case à cocher cliquable -->
+        <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task)" />
+        <!-- Titre de la tâche -->
+        <span class="task-title">{{ task.title }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
