@@ -10,7 +10,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String description;
+    private int priority;
     private boolean completed;
 
     // Getters et Setters
@@ -30,12 +30,12 @@ public class Task {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public boolean isCompleted() {

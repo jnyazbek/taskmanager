@@ -83,4 +83,88 @@ body {
     background-color: #ffcc00;
     border-radius: 10px 10px 0 0;
   }
+
+  .cta-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #ffcc00; /* Couleur de fond */
+    border: none; /* Supprime les bordures */
+    border-radius: 50px; /* Bouton arrondi */
+    padding: 15px 30px; /* Taille du bouton */
+    color: rgb(0, 0, 0); /* Couleur du texte */
+    font-size: 18px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    cursor: pointer; /* Curseur de la souris en forme de main */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre pour l'effet "gonflé" */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transition pour l'effet au survol */
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
+  }
+  
+  .cta-button:active {
+    transform: scale(0.98); /* Effet enfoncé lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduit l'ombre lors du clic */
+  }
+
+  /* Style général du formulaire */
+form {
+  max-width: 400px; /* Limite la largeur du formulaire */
+  margin: 0 auto; /* Centre le formulaire sur la page */
+  padding: 20px;
+  background-color: #f9f9f9; /* Couleur de fond douce */
+  border-radius: 10px; /* Arrondi des bords du formulaire */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+}
+
+/* Styles des labels */
+form label {
+  display: block; /* Les labels occupent toute la largeur */
+  font-weight: bold;
+  margin-bottom: 8px; /* Espacement sous le label */
+  font-size: 16px;
+  color: #333; /* Couleur plus sombre pour le texte */
+}
+
+/* Styles des champs de saisie */
+form input[type="text"], form input[type="email"], form input[type="password"], form textarea {
+  width: 100%; /* Les inputs occupent toute la largeur du formulaire */
+  padding: 20px;
+  margin-bottom: 20px; /* Espacement sous chaque champ */
+  border: 2px solid #ddd; /* Bordure subtile */
+  border-radius: 8px; /* Arrondi des coins des champs */
+  background-color: #fff; /* Fond blanc des champs */
+  font-size: 16px; /* Texte un peu plus grand */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Ombre à l'intérieur pour donner du relief */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transition fluide pour le focus */
+}
+
+form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus, form textarea:focus {
+  border-color: #ffcc00; /* Couleur de la bordure lorsqu'on focus */
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5); /* Lumière autour du champ lors du focus */
+  outline: none; /* Supprimer l'outline par défaut */
+}
+form button {
+  width: 100%; /* Le bouton occupe toute la largeur */
+  padding: 10px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+form button:hover {
+  background-color: #ffb400; /* Couleur de survol */
+}
+
+form button:active {
+  background-color: #ffaa00; /* Couleur lors du clic */
+}
+
+
   

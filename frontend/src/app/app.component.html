@@ -1,6 +1,19 @@
 <div class="checklist-container">
+
   <div class="checklist-header">
     <h2>CHECKLIST</h2>
+  </div>
+  <button (click)="showAddTaskForm()" class="cta-button">Add Task</button>
+   <div *ngIf="showForm">
+    <form (ngSubmit)="onSubmit()">
+      <label for="title">Task Title:</label>
+      <input id="title" [(ngModel)]="newTask.title" name="title" required>
+
+      <label for="priority">Task priority:</label>
+      <input id="priority" [(ngModel)]="newTask.priority" name="priority" required>
+
+      <button type="submit">Save Task</button>
+    </form>
   </div>
 
   <div class="checklist-body">

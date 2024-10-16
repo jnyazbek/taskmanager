@@ -28,7 +28,7 @@ public class TaskController {
     public Task updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
         task.setTitle(taskDetails.getTitle());
-        task.setDescription(taskDetails.getDescription());
+        task.setPriority(taskDetails.getPriority());
         task.setCompleted(taskDetails.isCompleted());
         return taskRepository.save(task);
     }
