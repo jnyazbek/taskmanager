@@ -1,0 +1,37 @@
+# Ignorer les dossiers et fichiers spécifiques à IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Ignorer les dossiers spécifiques à Visual Studio Code
+.vscode/
+
+# Ignorer les fichiers générés par macOS
+.DS_Store
+
+# Ignorer les dossiers et fichiers spécifiques à Node.js (Frontend Angular)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignorer les dossiers spécifiques à Angular
+.angular/
+dist/
+coverage/
+
+# Ignorer les dossiers générés par Maven (Backend Spring Boot)
+target/
+logs/
+*.log
+
+# Ignorer les fichiers spécifiques à Gradle (si tu utilises Gradle)
+.gradle/
+build/
+
+# Ignorer les fichiers de compilation Java
+*.class
+
+# Ignorer les fichiers de build de JetBrains IDE
+out/
+
