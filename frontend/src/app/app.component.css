@@ -53,8 +53,25 @@ body {
   .checklist-item {
     display: flex;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;    /* Ligne de séparation subtile */
+    justify-content: space-between; /* Permet de séparer la case à cocher, le texte, et le bouton X */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+
+  .delete-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred; /* Couleur lors du survol */
   }
   
   .checklist-item:last-child {

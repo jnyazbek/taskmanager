@@ -29,6 +29,13 @@ export class AppComponent implements OnInit {
     this.taskService.getTasks().subscribe((tasks) => {
       console.log('Tâches récupérées depuis le backend :', tasks);
       this.tasks = tasks;
+  
+      // Tri des tâches par priorité (null est traité comme priorité la plus basse)
+      this.tasks.sort((a, b) => {
+        if (a.priority === null) return 1; // a.priority est null, donc a est considéré plus bas que b
+        if (b.priority === null) return -1; // b.priority est null, donc b est considéré plus bas que a
+        return b.priority - a.priority; // Sinon, tri standard par priorité décroissante
+      });
     });
   }
 
@@ -40,6 +47,7 @@ export class AppComponent implements OnInit {
     if (this.newTask.title && this.newTask.priority) {
       this.taskService.createTask(this.newTask).subscribe((task) => {
         this.tasks.push(task);  // Le backend va générer l'ID ici
+        this.sortTasksByPriority();
         this.newTask = { title: '', priority:null, completed: false };  // Réinitialiser le formulaire
         this.showForm = false;  // Fermer le formulaire
       });
@@ -63,5 +71,38 @@ export class AppComponent implements OnInit {
       console.error("Erreur : la tâche ne possède pas d'id valide");
     }
     
+  }
+
+  deleteTask(id: number | undefined): void {
+    if (id !== undefined) {
+      this.taskService.deleteTask(id).subscribe(() => {
+        this.tasks = this.tasks.filter(task => task.id !== id); // Supprime la tâche de la liste locale
+        console.log('Tâche supprimée avec succès');
+      });
+    }
+  }
+
+  sortTasksByPriority(): void {
+    this.tasks.sort((a, b) => {
+      if (a.priority === null) return 1;  // Priorité null est plus basse
+      if (b.priority === null) return -1;
+      return b.priority - a.priority;  // Tri par priorité décroissante
+    });
+  }
+  
+  // Passe en mode édition
+  editTask(task: Task): void {
+    task.isEditing = true; // Ajoute un indicateur de mode édition à la tâche
+  }
+
+  // Enregistre la tâche modifiée
+  saveTask(task: Task): void {
+    if (task.title && task.priority != null && task.id !== undefined) {
+      this.taskService.updateTask(task.id, task).subscribe((updatedTask) => {
+        task.isEditing = false; // Quitte le mode édition
+        this.sortTasksByPriority();
+        console.log('Tâche mise à jour:', updatedTask);
+      });
+    }
   }
 }

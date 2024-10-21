@@ -12,17 +12,27 @@
       <label for="priority">Task priority:</label>
       <input id="priority" [(ngModel)]="newTask.priority" name="priority" required>
 
-      <button type="submit">Save Task</button>
+      <button type="submit">Add Task</button>
     </form>
   </div>
 
   <div class="checklist-body">
     <ul>
       <li *ngFor="let task of tasks" class="checklist-item">
-        <!-- Case à cocher cliquable -->
-        <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task)" />
-        <!-- Titre de la tâche -->
-        <span class="task-title">{{ task.title }}</span>
+        <!-- Si la tâche est en mode édition -->
+        <div *ngIf="task.isEditing; else normalTaskDisplay">
+          <!-- Mode édition -->
+          <input [(ngModel)]="task.title" placeholder="Modifier le titre de la tâche" />
+          <input [(ngModel)]="task.priority" type="number" placeholder="Modifier la priorité" />
+          <button (click)="saveTask(task)">Save</button>
+        </div>
+        
+        <!-- Affichage normal de la tâche -->
+        <ng-template #normalTaskDisplay>
+          <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task)" />
+          <span class="task-title" (dblclick)="editTask(task)">{{ task.title }}</span>
+          <button class="delete-button" (click)="deleteTask(task.id)">X</button>
+        </ng-template>
       </li>
     </ul>
   </div>

@@ -3,5 +3,6 @@ export class Task {
     title!: string;
     priority!: number | null;
     completed!: boolean;
+    isEditing?: boolean = false; 
   }
   
